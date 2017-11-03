@@ -44,21 +44,6 @@ def cumulativeDistribution(G1, G2, G3):
     degVec2 = degreesCounter(G2)
     degVec3 = degreesCounter(G3)
 
-    '''for i in range(112):
-        if i == 79:
-            degVec1.append(0)
-        else:
-            degVec1.append(deg1[i])
-
-    for i in range(len(deg3)):
-        if i == 144:
-            degVec3.append(0)
-        else:
-            degVec3.append(deg3[i + 1])
-
-	for i in range(len(deg2)):
-        degVec2.append(deg2[i + 2])'''
-
     cdf1 = nx.utils.cumulative_distribution(degVec1)
     cdf2 = nx.utils.cumulative_distribution(degVec2)
     cdf2 = nx.utils.cumulative_distribution(degVec3)
@@ -96,21 +81,15 @@ def eigenvectorCentrality(G):
 #Plot Distributions functions
 def plotBetweennessCentralityDist(G1, G2, G3):
     betw = betweennessCentrality(G1)
-    #values = [log(value) for value in list(betw.values())]
     plt.plot(list(betw.keys()), list(betw.values()), 'bo', label = 'social')
 
     betw = betweennessCentrality(G2)
-    #values = [log(value) for value in list(betw.values())]
     plt.plot(list(betw.keys()), list(betw.values()), 'go', label = 'infrastructure')
 
 
     betw = betweennessCentrality(G3)
-    #values = [log(value) for value in list(betw.values())]
     plt.plot(list(betw.keys()), list(betw.values()), 'ro', label = 'biological')
 
-
-    #plt.xscale('log')
-    #plt.yscale('log')
     plt.xlabel('Value')
     plt.ylabel('Count')
     plt.legend()
@@ -127,8 +106,6 @@ def plotClosenessCentralityDist(G1, G2, G3):
 
     cl3 = closenessCentrality(G3)
     plt.plot(list(cl3.keys()), list(cl3.values()), 'ro', label = 'biological')
-    #plt.xscale('log')
-    #plt.yscale('log')
     plt.xlabel('Probability')
     plt.ylabel('Nodes Count')
     plt.legend()
