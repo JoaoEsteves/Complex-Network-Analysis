@@ -39,21 +39,6 @@ def degreesCounter(G):
 
 	return degreesCounter
 
-def cumulativeDistribution(G1, G2, G3):
-    degVec1 = degreesCounter(G1)
-    degVec2 = degreesCounter(G2)
-    degVec3 = degreesCounter(G3)
-
-    cdf1 = nx.utils.cumulative_distribution(degVec1)
-    cdf2 = nx.utils.cumulative_distribution(degVec2)
-    cdf2 = nx.utils.cumulative_distribution(degVec3)
-
-    plt.plot(degVec1, cdf1)
-    plt.plot(degVec2, cdf2)
-    plt.plot(degVec3, cdf3)
-    plt.show()
-
-
 #Centralities calculations
 def betweennessCentrality(G):
     betweenessCentrality = nx.betweenness_centrality(G, k = None, normalized = True, weight = None, endpoints = False, seed = None)
