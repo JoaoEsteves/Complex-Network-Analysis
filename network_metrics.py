@@ -8,18 +8,6 @@ def createGraph(file):
     G = nx.read_edgelist(file, create_using = nx.Graph(), nodetype = int)
     return G
 
-'''#APENAS FUNCIONA NA NETWORK DO STAR WARS
-def getDegree(G):
-    deg = G.degree()
-    degVec = []
-    for i in range(112):
-        if i == 79:
-            degVec.append(0)
-        else:
-            degVec.append(deg[i])
-    return degVec
-'''
-
 def degreeDistribution(G1, G2, G3):
 	cl1 = degreesCounter(G1)
 	plt.plot(list(cl1.keys()), list(cl1.values()), label = 'social')
@@ -169,15 +157,3 @@ def plotEigenvectorCentralityDist(G1, G2, G3):
 gSW = createGraph('edges_social.txt')
 gAIR = createGraph('edges_infra.txt')
 gBIO = createGraph('edges_bio.txt')
-#print('Star Wars network\n' + nx.info(gSW) + '\nConnected components = ' + str(nx.number_connected_components(gSW)) + '\n')
-#print('US Air network\n' + nx.info(gAIR) + '\nConnected components = ' + str(nx.number_connected_components(gAIR)) + '\n')
-#print('C. Elegans neural network\n' + nx.info(gBIO) + '\nConnected components = ' + str(nx.number_connected_components(gBIO)) + '\n')
-
-#degreeDistribution(gSW, gAIR, gBIO)
-#plotClosenessCentralityDist(gSW, gAIR, gBIO)
-#Betweenness(perceber porque o valor count quando value = 0 nao aparece no grafico)
-#plotBetweennessCentralityDist(gSW, gAIR, gBIO)
-#Eigenvector apresenta valores que não correspondem aos computados pelo gephi
-#plotEigenvectorCentralityDist(gSW, gAIR, gBIO)
-
-#cumulativeDistribution(gSW, gAIR, gBIO)
